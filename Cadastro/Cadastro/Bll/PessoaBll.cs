@@ -42,6 +42,26 @@ namespace Cadastro.Bll
                 throw erro;
             }
         }
+        //Metodo pesquisar por nome
+        public DataTable Pesquisar(Pessoa pessoa)
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+                dt = pessoaDao.Pesquisar(pessoa);
+                return dt;
+
+
+            }
+            catch (Exception error)
+            {
+                throw error;
+            }
+
+        }
+
+
+
         //metodo editar os dados da pessoa
         public void editar(Pessoa pessoa)
         {

@@ -33,25 +33,37 @@ namespace Cadastro
             textBairro.Clear();
             textCidade.Clear();
             comboBoxUf.SelectedIndex = -1;
+            textNome.BackColor = Color.White;
+            textEnd.BackColor = Color.White;
+            comboBoxSx.BackColor = Color.White;
         }
 
         //metodo salvar pessoa no banco
         private void salvar(Pessoa pessoa)
         {
-            PessoaBll pesssoaBll = new PessoaBll();
-            pessoa.nome = textNome.Text;
-            pessoa.sexo = comboBoxSx.Text;
-            pessoa.telefone = textTel.Text;
-            pessoa.celular = textCel.Text;
-            pessoa.endereco = textEnd.Text;
-            pessoa.bairro = textBairro.Text;
-            pessoa.cidade = textCidade.Text;
-            pessoa.estado = comboBoxUf.Text;
+            if(textNome.Text.Trim() == string.Empty || comboBoxSx.Text.Trim()== string.Empty || textEnd.Text.Trim() == string.Empty){
+            
+                MessageBox.Show("Campos vazios","Alerta",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                textNome.BackColor = Color.Red;
+                textEnd.BackColor =Color.Red;
+                comboBoxSx.BackColor = Color.Red;
 
-            pesssoaBll.salvar(pessoa);
-            MessageBox.Show("Pessoa salva com sucesso");
-            listar();
-            limparCampos();
+            }else{
+                PessoaBll pesssoaBll = new PessoaBll();
+                pessoa.nome = textNome.Text;
+                pessoa.sexo = comboBoxSx.Text;
+                pessoa.telefone = textTel.Text;
+                pessoa.celular = textCel.Text;
+                pessoa.endereco = textEnd.Text;
+                pessoa.bairro = textBairro.Text;
+                pessoa.cidade = textCidade.Text;
+                pessoa.estado = comboBoxUf.Text;
+
+                pesssoaBll.salvar(pessoa);
+                MessageBox.Show("Pessoa salva com sucesso");
+                listar();
+                limparCampos();
+            }
 
         }
         //metodo listar pessoas no banco
@@ -60,27 +72,64 @@ namespace Cadastro
             PessoaBll pessoaBll = new PessoaBll();
             tblPessoa.DataSource = pessoaBll.listar();
 
+            tblPessoa.Columns[0].HeaderText = "Cod";
+            tblPessoa.Columns[1].HeaderText = "Nome";
+            tblPessoa.Columns[2].HeaderText = "Sexo";
+            tblPessoa.Columns[3].HeaderText = "Telefone";
+            tblPessoa.Columns[4].HeaderText = "Celular";
+            tblPessoa.Columns[5].HeaderText = "Endereço";
+            tblPessoa.Columns[6].HeaderText = "Bairro";
+            tblPessoa.Columns[7].HeaderText = "Cidade";
+            tblPessoa.Columns[8].HeaderText = "Uf";
+
+            tblPessoa.Columns[0].Width = 40;
+            tblPessoa.Columns[1].Width = 200;
+            tblPessoa.Columns[2].Width = 40;
+            tblPessoa.Columns[8].Width = 40;
+
+        }
+
+
+        //Metodo pesquisar por nome
+        public void Pesquisar(Pessoa pessoa)
+        {
+                pessoa.nome = textPesquisa.Text.Trim();
+
+                PessoaBll pessoaBll = new PessoaBll();
+                tblPessoa.DataSource = pessoaBll.Pesquisar(pessoa);
+
+
+
         }
         //metodo editar pessoa
         private void editar(Pessoa pessoa)
         {
             PessoaBll pesssoaBll = new PessoaBll();
-            
-            pessoa.id_pessoa = Convert.ToInt32(textId.Text);
-            pessoa.nome = textNome.Text;
-            pessoa.sexo = comboBoxSx.Text;
-            pessoa.telefone = textTel.Text;
-            pessoa.celular = textCel.Text;
-            pessoa.endereco = textEnd.Text;
-            pessoa.bairro = textBairro.Text;
-            pessoa.cidade = textCidade.Text;
-            pessoa.estado = comboBoxUf.Text;
+            if (textNome.Text.Trim() == string.Empty || comboBoxSx.Text.Trim() == string.Empty || textEnd.Text.Trim() == string.Empty)
+            {
 
-            pesssoaBll.editar(pessoa);
+                MessageBox.Show("Campos vazios", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textNome.BackColor = Color.Red;
+                textEnd.BackColor = Color.Red;
+                comboBoxSx.BackColor = Color.Red;
+            }
+            else { 
+                pessoa.id_pessoa = Convert.ToInt32(textId.Text);
+                pessoa.nome = textNome.Text;
+                pessoa.sexo = comboBoxSx.Text;
+                pessoa.telefone = textTel.Text;
+                pessoa.celular = textCel.Text;
+                pessoa.endereco = textEnd.Text;
+                pessoa.bairro = textBairro.Text;
+                pessoa.cidade = textCidade.Text;
+                pessoa.estado = comboBoxUf.Text;
 
-            MessageBox.Show("Pessoa Editada com Sucesso");
-            listar();
-            limparCampos();
+                pesssoaBll.editar(pessoa);
+
+                MessageBox.Show("Pessoa Editada com Sucesso");
+                listar();
+                limparCampos();
+            }
         }
         private void label5_Click(object sender, EventArgs e)
         {
@@ -126,13 +175,25 @@ namespace Cadastro
         private void excluir(Pessoa pessoa)
         {
             PessoaBll pessoaBll = new PessoaBll();
-            pessoa.id_pessoa = Convert.ToInt32(textId.Text);
 
-            pessoaBll.excluir(pessoa);
+            if (textId.Text.Trim() == string.Empty)
+            {
+                MessageBox.Show("Selecine uma pessoa a ser excluida", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (MessageBox.Show("Deseja excluir essa pessoa", "Alerta", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.No)
+            {
 
-            MessageBox.Show("Pessoa excluida com sucesso");
-            listar();
-            limparCampos();
+            }
+            else
+                {
+                    pessoa.id_pessoa = Convert.ToInt32(textId.Text);
+
+                    pessoaBll.excluir(pessoa);
+
+                    MessageBox.Show("Pessoa excluida com sucesso");
+                    listar();
+                    limparCampos();
+                }
 
         }
 
@@ -145,6 +206,19 @@ namespace Cadastro
         private void btnCancela_Click(object sender, EventArgs e)
         {
             limparCampos();
+        }
+
+        private void textPesquisa_TextChanged(object sender, EventArgs e)
+        {
+            if(textPesquisa.Text == ""){
+                PessoaBll pessoaBll = new PessoaBll();
+                tblPessoa.DataSource = pessoaBll.listar();
+            }
+            else
+            {
+                Pessoa pessoa = new Pessoa();
+                Pesquisar(pessoa);
+            }
         }
     }
 }

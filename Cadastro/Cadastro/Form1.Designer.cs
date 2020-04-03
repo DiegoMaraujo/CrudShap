@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.textId = new System.Windows.Forms.TextBox();
             this.textNome = new System.Windows.Forms.TextBox();
@@ -42,8 +43,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.comboBoxUf = new System.Windows.Forms.ComboBox();
-            this.btnSalvar = new System.Windows.Forms.Button();
-            this.btnEditar = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnCancela = new System.Windows.Forms.Button();
             this.tblPessoa = new System.Windows.Forms.DataGridView();
@@ -51,6 +50,11 @@
             this.textCel = new System.Windows.Forms.MaskedTextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.textBairro = new System.Windows.Forms.TextBox();
+            this.btnEditar = new System.Windows.Forms.Button();
+            this.btnSalvar = new System.Windows.Forms.Button();
+            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.textPesquisa = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.tblPessoa)).BeginInit();
             this.SuspendLayout();
             // 
@@ -183,26 +187,6 @@
             this.comboBoxUf.Size = new System.Drawing.Size(87, 21);
             this.comboBoxUf.TabIndex = 8;
             // 
-            // btnSalvar
-            // 
-            this.btnSalvar.Location = new System.Drawing.Point(56, 208);
-            this.btnSalvar.Name = "btnSalvar";
-            this.btnSalvar.Size = new System.Drawing.Size(75, 23);
-            this.btnSalvar.TabIndex = 9;
-            this.btnSalvar.Text = "Salvar";
-            this.btnSalvar.UseVisualStyleBackColor = true;
-            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
-            // 
-            // btnEditar
-            // 
-            this.btnEditar.Location = new System.Drawing.Point(137, 208);
-            this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(75, 23);
-            this.btnEditar.TabIndex = 10;
-            this.btnEditar.Text = "Editar";
-            this.btnEditar.UseVisualStyleBackColor = true;
-            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
-            // 
             // btnExcluir
             // 
             this.btnExcluir.Location = new System.Drawing.Point(218, 208);
@@ -269,11 +253,52 @@
             this.textBairro.Size = new System.Drawing.Size(92, 20);
             this.textBairro.TabIndex = 6;
             // 
+            // btnEditar
+            // 
+            this.btnEditar.Location = new System.Drawing.Point(137, 208);
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.Size = new System.Drawing.Size(75, 23);
+            this.btnEditar.TabIndex = 10;
+            this.btnEditar.Text = "Editar";
+            this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
+            // 
+            // btnSalvar
+            // 
+            this.btnSalvar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnSalvar.Location = new System.Drawing.Point(56, 208);
+            this.btnSalvar.Name = "btnSalvar";
+            this.btnSalvar.Size = new System.Drawing.Size(75, 23);
+            this.btnSalvar.TabIndex = 9;
+            this.btnSalvar.Text = "Salvar";
+            this.toolTip.SetToolTip(this.btnSalvar, "Salvar");
+            this.btnSalvar.UseVisualStyleBackColor = true;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
+            // 
+            // textPesquisa
+            // 
+            this.textPesquisa.Location = new System.Drawing.Point(389, 211);
+            this.textPesquisa.Name = "textPesquisa";
+            this.textPesquisa.Size = new System.Drawing.Size(330, 20);
+            this.textPesquisa.TabIndex = 26;
+            this.textPesquisa.TextChanged += new System.EventHandler(this.textPesquisa_TextChanged);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(725, 214);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(53, 13);
+            this.label9.TabIndex = 27;
+            this.label9.Text = "Pesquisar";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(830, 450);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.textPesquisa);
             this.Controls.Add(this.textBairro);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.textCel);
@@ -331,6 +356,9 @@
         private System.Windows.Forms.MaskedTextBox textCel;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBairro;
+        private System.Windows.Forms.ToolTip toolTip;
+        private System.Windows.Forms.TextBox textPesquisa;
+        private System.Windows.Forms.Label label9;
     }
 }
 

@@ -56,6 +56,7 @@ namespace Cadastro.Dao
                 da.Fill(dt);
 
                 return dt;
+            
             }catch(Exception erro)
             {
                 throw erro;
@@ -66,6 +67,35 @@ namespace Cadastro.Dao
             }
 
         }
+        //metodo para listar por nome
+        public DataTable Pesquisar(Pessoa pessoa)
+        {
+            try
+            {
+                AbrirConexao();
+
+                MySqlDataAdapter da = new MySqlDataAdapter();
+                DataTable dt = new DataTable();
+                
+                comando = new MySqlCommand("SELECT * FROM pessoa WHERE nome LIKE '%' @nome '%' ORDER BY nome", conexao);
+                comando.Parameters.AddWithValue("@nome", pessoa.nome);
+
+                da.SelectCommand = comando;
+                da.Fill(dt);
+
+                return dt;
+
+            }
+            catch(Exception erro)
+            {
+                throw erro;
+            }
+            finally
+            {
+                FecharConexao();
+            }
+        }
+
         //metodo editar
         public void editar(Pessoa pessoa)
         {

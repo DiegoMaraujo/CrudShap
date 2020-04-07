@@ -12,7 +12,7 @@ namespace Cadastro.Dao
     public class PessoaDAO : Conexao
     {
         MySqlCommand comando = null;
-        public void salvar(Pessoa pessoa)
+        public void salvar(PessoaModel pessoa)
         {
             try
             {
@@ -68,7 +68,7 @@ namespace Cadastro.Dao
 
         }
         //metodo para listar por nome
-        public DataTable Pesquisar(Pessoa pessoa)
+        public DataTable Pesquisar(PessoaModel pessoa)
         {
             try
             {
@@ -97,7 +97,7 @@ namespace Cadastro.Dao
         }
 
         //metodo editar
-        public void editar(Pessoa pessoa)
+        public void editar(PessoaModel pessoa)
         {
             try
             {
@@ -128,7 +128,7 @@ namespace Cadastro.Dao
         }
 
         //metodo excluir
-        public void excluir(Pessoa pessoa)
+        public void excluir(PessoaModel pessoa)
         {
             try
             {
@@ -139,6 +139,38 @@ namespace Cadastro.Dao
                 comando.ExecuteNonQuery();
 
             }catch(Exception erro)
+            {
+                throw erro;
+            }
+            finally
+            {
+                FecharConexao();
+            }
+        }
+
+        //Metodo login
+        public bool tem = false;
+        MySqlDataReader dr;
+        public bool Verificar(String login, String senha)
+        {
+            try
+            {                    
+                AbrirConexao();
+           
+                comando = new MySqlCommand("SELECT * FROM login1 WHERE login = @login AND senha = @senha", conexao);
+                comando.Parameters.AddWithValue("@login", login);
+                comando.Parameters.AddWithValue("@senha", senha);
+  
+                dr = comando.ExecuteReader();
+
+                if (dr.HasRows)
+                {
+                    tem = true;
+                }
+                return tem;
+
+            }
+            catch (Exception erro)
             {
                 throw erro;
             }

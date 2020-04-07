@@ -1,0 +1,15 @@
+C:\Users\Diego Martins\Desktop\Login\Cadastro\bin\Debug\Cadastro.exe.config
+C:\Users\Diego Martins\Desktop\Login\Cadastro\bin\Debug\Cadastro.exe
+C:\Users\Diego Martins\Desktop\Login\Cadastro\bin\Debug\Cadastro.pdb
+C:\Users\Diego Martins\Desktop\Login\Cadastro\bin\Debug\MySql.Data.dll
+C:\Users\Diego Martins\Desktop\Login\Cadastro\bin\Debug\Google.Protobuf.dll
+C:\Users\Diego Martins\Desktop\Login\Cadastro\bin\Debug\MySql.Data.xml
+C:\Users\Diego Martins\Desktop\Login\Cadastro\obj\Debug\login1.csprojAssemblyReference.cache
+C:\Users\Diego Martins\Desktop\Login\Cadastro\obj\Debug\Cadastro.Form1.resources
+C:\Users\Diego Martins\Desktop\Login\Cadastro\obj\Debug\Cadastro.Properties.Resources.resources
+C:\Users\Diego Martins\Desktop\Login\Cadastro\obj\Debug\Cadastro.views.tela.resources
+C:\Users\Diego Martins\Desktop\Login\Cadastro\obj\Debug\login1.csproj.GenerateResource.cache
+C:\Users\Diego Martins\Desktop\Login\Cadastro\obj\Debug\login1.csproj.CoreCompileInputs.cache
+C:\Users\Diego Martins\Desktop\Login\Cadastro\obj\Debug\login1.csproj.CopyComplete
+C:\Users\Diego Martins\Desktop\Login\Cadastro\obj\Debug\Cadastro.exe
+C:\Users\Diego Martins\Desktop\Login\Cadastro\obj\Debug\Cadastro.pdb

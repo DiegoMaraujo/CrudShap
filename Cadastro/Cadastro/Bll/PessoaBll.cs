@@ -14,7 +14,7 @@ namespace Cadastro.Bll
         
         PessoaDAO  pessoaDao = new PessoaDAO();
         //metodo salvar
-        public void salvar(Pessoa pessoa)
+        public void salvar(PessoaModel pessoa)
         {
             try
             {
@@ -43,7 +43,7 @@ namespace Cadastro.Bll
             }
         }
         //Metodo pesquisar por nome
-        public DataTable Pesquisar(Pessoa pessoa)
+        public DataTable Pesquisar(PessoaModel pessoa)
         {
             try
             {
@@ -63,7 +63,7 @@ namespace Cadastro.Bll
 
 
         //metodo editar os dados da pessoa
-        public void editar(Pessoa pessoa)
+        public void editar(PessoaModel pessoa)
         {
             try
             {
@@ -76,7 +76,7 @@ namespace Cadastro.Bll
         }
         //metodo excluir
 
-        public void excluir(Pessoa pessoa)
+        public void excluir(PessoaModel pessoa)
         {
             try
             {
@@ -87,5 +87,26 @@ namespace Cadastro.Bll
                 throw erro;
             }
         }
+
+        //Metodo login
+        public bool tem;
+        public bool login(String login, String senha)
+        {
+            PessoaDAO loginDao = new PessoaDAO();
+           
+            try
+            {
+                tem = loginDao.Verificar(login, senha);
+            }
+            catch(Exception erro)
+            {
+                throw erro;
+            }
+
+            return tem;
+        
+        
+        }
+
     }
 }

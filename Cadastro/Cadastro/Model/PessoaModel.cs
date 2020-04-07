@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Cadastro.Model
 {
-    public class Pessoa
+    public class PessoaModel
     {
 
         public int id_pessoa { get; set; }
@@ -18,5 +18,9 @@ namespace Cadastro.Model
         public String bairro{ get; set; }
         public String cidade { get; set; }
         public String estado { get; set; }
+
+        public int id_login { get; set; }
+        public String login { get; set; }
+        public String senha { get; set; }
     }
 }

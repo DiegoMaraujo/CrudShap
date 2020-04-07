@@ -1,0 +1,17 @@
+CREATE DATABASE cadastro1;
+USE cadastro1;
+
+create table pessoa(
+
+id_pessoa int null AUTO_INCREMENT,
+nome varchar(50),
+sexo varchar(1),
+telefone varchar(15),
+celular varchar(15),
+endereço varchar(100),
+bairro varchar(50),
+cidade varchar(50),
+estado varchar(2),
+
+primary key(id_pessoa)
+)default charset utf8;

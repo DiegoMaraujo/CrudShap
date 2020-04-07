@@ -14,7 +14,7 @@ namespace Cadastro
 {
     public partial class Form1 : Form
     {
-        public Form1()
+       public Form1()
         {
             InitializeComponent();
             FormBorderStyle = FormBorderStyle.FixedDialog;
@@ -39,7 +39,7 @@ namespace Cadastro
         }
 
         //metodo salvar pessoa no banco
-        private void salvar(Pessoa pessoa)
+        private void salvar(PessoaModel pessoa)
         {
             if(textNome.Text.Trim() == string.Empty || comboBoxSx.Text.Trim()== string.Empty || textEnd.Text.Trim() == string.Empty){
             
@@ -91,7 +91,7 @@ namespace Cadastro
 
 
         //Metodo pesquisar por nome
-        public void Pesquisar(Pessoa pessoa)
+        public void Pesquisar(PessoaModel pessoa)
         {
                 pessoa.nome = textPesquisa.Text.Trim();
 
@@ -102,7 +102,7 @@ namespace Cadastro
 
         }
         //metodo editar pessoa
-        private void editar(Pessoa pessoa)
+        private void editar(PessoaModel pessoa)
         {
             PessoaBll pesssoaBll = new PessoaBll();
             if (textNome.Text.Trim() == string.Empty || comboBoxSx.Text.Trim() == string.Empty || textEnd.Text.Trim() == string.Empty)
@@ -148,7 +148,7 @@ namespace Cadastro
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            Pessoa pessoa = new Pessoa();
+            PessoaModel pessoa = new PessoaModel();
             salvar(pessoa);
         }
 
@@ -168,11 +168,11 @@ namespace Cadastro
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            Pessoa pessoa = new Pessoa();
+            PessoaModel pessoa = new PessoaModel();
             editar(pessoa);
         }
         //metodo excluir
-        private void excluir(Pessoa pessoa)
+        private void excluir(PessoaModel pessoa)
         {
             PessoaBll pessoaBll = new PessoaBll();
 
@@ -196,18 +196,18 @@ namespace Cadastro
                 }
 
         }
-
+        //excluir
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-            Pessoa pessoa = new Pessoa();
+            PessoaModel pessoa = new PessoaModel();
             excluir(pessoa);
         }
-
+        //cancelar
         private void btnCancela_Click(object sender, EventArgs e)
         {
             limparCampos();
         }
-
+        //pesquisa
         private void textPesquisa_TextChanged(object sender, EventArgs e)
         {
             if(textPesquisa.Text == ""){
@@ -216,9 +216,29 @@ namespace Cadastro
             }
             else
             {
-                Pessoa pessoa = new Pessoa();
+                PessoaModel pessoa = new PessoaModel();
                 Pesquisar(pessoa);
             }
+        }
+        //login
+        private void btnEntar_Click(object sender, EventArgs e)
+        {
+            PessoaBll pessoaBll = new PessoaBll();
+            pessoaBll.login(textLogin.Text, textSenha.Text);
+            if (pessoaBll.tem)
+            {
+                MessageBox.Show("Login  com sucesso");
+
+            }
+            else
+            {
+                MessageBox.Show("Erro");
+            }
+        }
+        //metodo sair
+        private void btnSair_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

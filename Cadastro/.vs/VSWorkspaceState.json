@@ -2,7 +2,8 @@
   "ExpandedNodes": [
     "",
     "\\Cadastro",
-    "\\Cadastro\\Dao"
+    "\\Cadastro\\Dao",
+    "\\Cadastro\\views"
   ],
   "SelectedNode": "\\Cadastro.sln",
   "PreviewInSolutionExplorer": false

@@ -4,13 +4,14 @@ using System.Text;
 
 namespace ConsoleApp1
 {
-    class Vetores
+    /* class Vetores
     {
-      /*  static void Main(string[] agrs)
+       static void Main(string[] agrs)
         {
              int[] nu = { 1, 2, 3, 4, 5 };
 
-             Console.WriteLine(nu[1]);
+         
+        Console.WriteLine(nu[1]);
 
              string[] cars = { "Volvo", "BMW", "Ford", "Mazda" };
              cars[0] = "Opel";//trocou o nome da posição 0;
@@ -27,6 +28,20 @@ namespace ConsoleApp1
             {
                 Console.WriteLine(i);
             }
+            
+            Console.WriteLine("Digite 3 números para ser odernados");
+            int[] n = { 1,2,3 };
+            
+            n[0] = Convert.ToInt32(Console.ReadLine());
+            n[1] = Convert.ToInt32(Console.ReadLine());
+            n[2] = Convert.ToInt32(Console.ReadLine());
+            Array.Sort(n);
+            Console.WriteLine("Os Números em odernação foi:");
+            for (int i = 0; i < n.Length; i++)
+            {
+                Console.WriteLine(n[i]);
+            }
+        
 
         }
     }*/

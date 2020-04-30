@@ -13,5 +13,7 @@ namespace Cadastro.Model
         public int id_login { get; set; }
         public String login { get; set; }
         public String senha { get; set; }
+
+
     }
 }

@@ -39,7 +39,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.textIdLo = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.btnListar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.tblLo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -64,7 +63,7 @@
             // 
             // btnCadastar
             // 
-            this.btnCadastar.Location = new System.Drawing.Point(21, 324);
+            this.btnCadastar.Location = new System.Drawing.Point(88, 319);
             this.btnCadastar.Name = "btnCadastar";
             this.btnCadastar.Size = new System.Drawing.Size(75, 23);
             this.btnCadastar.TabIndex = 2;
@@ -82,15 +81,15 @@
             // tblLo
             // 
             this.tblLo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.tblLo.Location = new System.Drawing.Point(38, 141);
+            this.tblLo.Location = new System.Drawing.Point(58, 141);
             this.tblLo.Name = "tblLo";
-            this.tblLo.Size = new System.Drawing.Size(369, 150);
+            this.tblLo.Size = new System.Drawing.Size(349, 150);
             this.tblLo.TabIndex = 4;
             this.tblLo.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tblLo_CellContentClick);
             // 
             // btnEditar
             // 
-            this.btnEditar.Location = new System.Drawing.Point(126, 324);
+            this.btnEditar.Location = new System.Drawing.Point(193, 319);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(75, 23);
             this.btnEditar.TabIndex = 5;
@@ -100,7 +99,7 @@
             // 
             // btnExcluir
             // 
-            this.btnExcluir.Location = new System.Drawing.Point(220, 324);
+            this.btnExcluir.Location = new System.Drawing.Point(287, 319);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(75, 23);
             this.btnExcluir.TabIndex = 6;
@@ -140,22 +139,11 @@
             this.label4.TabIndex = 10;
             this.label4.Text = "id login";
             // 
-            // btnListar
-            // 
-            this.btnListar.Location = new System.Drawing.Point(328, 324);
-            this.btnListar.Name = "btnListar";
-            this.btnListar.Size = new System.Drawing.Size(75, 23);
-            this.btnListar.TabIndex = 11;
-            this.btnListar.Text = "listar";
-            this.btnListar.UseVisualStyleBackColor = true;
-            this.btnListar.Click += new System.EventHandler(this.btnListar_Click);
-            // 
             // tela
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(522, 450);
-            this.Controls.Add(this.btnListar);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.textIdLo);
             this.Controls.Add(this.textSe);
@@ -189,6 +177,5 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textIdLo;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button btnListar;
     }
 }

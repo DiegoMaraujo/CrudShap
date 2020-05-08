@@ -15,9 +15,11 @@ namespace Cadastro.views
 {
     public partial class tela : Form
     {
+
         public tela()
         {
             InitializeComponent();
+            listar();
         }
         //limpar
         private void limpar()
